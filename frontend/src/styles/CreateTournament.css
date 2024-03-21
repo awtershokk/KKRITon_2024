@@ -1,0 +1,7 @@
+.custom-container {
+    width: 500px; /* Уменьшаем ширину контейнера */
+    padding: 40px; /* Отступы внутри контейнера */
+    border: 2px solid #ced4da; /* Добавляем обводку */
+    border-radius: 10px; /* Закругляем углы */
+    margin-top: 100px;
+}
