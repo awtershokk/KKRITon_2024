@@ -1,17 +1,17 @@
 import React from 'react';
 import { Navbar, Nav} from 'react-bootstrap';
 
-const OrganizerHeader = () => {
+const PlayerHeader = () => {
     return (
-        <div id="organizer_header">
+        <div id="player_header">
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#">Турниры ККРИТ</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#">Активные турниры</Nav.Link>
-                        <Nav.Link href="#">Команды</Nav.Link>
-                        <Nav.Link href="#">Мой профиль</Nav.Link>
+                        <Nav.Link href="#">Пока что</Nav.Link>
+                        <Nav.Link href="#">Хз</Nav.Link>
+                        <Nav.Link href="#">Че тут должно быть</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -19,4 +19,4 @@ const OrganizerHeader = () => {
     );
 };
 
-export default OrganizerHeader;
+export default PlayerHeader;
