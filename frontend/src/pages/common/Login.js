@@ -16,15 +16,18 @@ export default function Login() {
                                 Зарегистрироваться
                             </Link>
                         </div>
+
                         <Form>
                             <Form.Group className="mb-3">
                                 <Form.Label>Электронная почта</Form.Label>
                                 <Form.Control type="email" />
                             </Form.Group>
+
                             <Form.Group className="mb-3">
                                 <Form.Label>Пароль</Form.Label>
                                 <Form.Control type="password" />
                             </Form.Group>
+
                             <div className="d-grid gap-2">
                                 <Button type="submit" variant="primary">
                                     Войти
