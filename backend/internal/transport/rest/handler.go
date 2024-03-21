@@ -35,24 +35,24 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	auth := router.Group("/auth")
 	{
-		auth.POST("/sign-up", h.signUp)
-		auth.POST("/sign-in", h.signIn)
+		auth.POST("/sign-up", h.signUp) //
+		auth.POST("/sign-in", h.signIn) //
 	}
 
 	api := router.Group("/api", h.userIdentity)
 	{
 		users := api.Group("/users")
 		{
-			users.GET("/", h.getAllUsers)
-			users.GET("/:user_id", h.getUserById)
+			users.GET("/", h.getAllUsers)         //
+			users.GET("/:user_id", h.getUserById) //
 			users.PUT("/:user_id", h.updateUser)
 		}
 
 		teams := api.Group("/teams")
 		{
-			teams.POST("/", h.createTeam)
-			teams.GET("/", h.getAllTeams)
-			teams.GET("/:team_id", h.getTeamById)
+			teams.POST("/", h.createTeam)         //
+			teams.GET("/", h.getAllTeams)         //
+			teams.GET("/:team_id", h.getTeamById) //
 			teams.PUT("/:team_id", h.updateTeam)
 			teams.DELETE("/:team_id", h.deleteTeam)
 
@@ -69,9 +69,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 		tournaments := api.Group("/tournaments")
 		{
-			tournaments.POST("/", h.createTournament)
-			tournaments.GET("/", h.getAllTournaments)
-			tournaments.GET("/:tournament_id", h.getTournamentById)
+			tournaments.POST("/", h.createTournament)               //
+			tournaments.GET("/", h.getAllTournaments)               //
+			tournaments.GET("/:tournament_id", h.getTournamentById) //
 			tournaments.PUT("/:tournament_id", h.updateTournament)
 			tournaments.DELETE("/:tournament_id", h.deleteTournament)
 
