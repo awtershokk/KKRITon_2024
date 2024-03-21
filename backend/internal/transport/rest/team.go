@@ -1,8 +1,20 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/awtershokk/KKRITon-2024/backend/internal/models"
+	"github.com/gin-gonic/gin"
+)
 
 func (h *Handler) createTeam(c *gin.Context) {
+	id, ok := c.Get("userId")
+	if !ok {
+		newErrorResponse(c, http.StatusInternalServerError, "Пользователь не найден")
+		return
+	}
+
+	var input models.Team
 
 }
 
