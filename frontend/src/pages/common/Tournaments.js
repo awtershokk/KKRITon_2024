@@ -6,34 +6,39 @@ export default function Tournaments() {
     return (
         <div>
             <Header/>
-            <h1>Список активных турниров</h1>
+            <div className="container">
 
-            <div className="row">
-                <TournamentCard
-                    title="Турнир по Dota 2"
-                    content="Участники: Команда 1(гиперсылка), Команда 2(гиперсылка)"
-                    buttonText="Участвовать"
-                />
+                <h1 className="mt-2">Список активных турниров</h1>
+
+                <div className="row mt-2">
+                    <div className="col-md-6">
+                        <TournamentCard
+                            title="ККРИТ|Dota 2"
+                            discipline="Dota 2"
+                            status="Запланирован"
+                            date_start="19.08"
+                            date_end="30.08"
+                            teams="Участники: Команда 1, Команда 2"
+                            buttonText="Участвовать"
+                        />
+                    </div>
+                </div>
+
+                <div className="row mt-2">
+                    <div className="col-md-6">
+                        <TournamentCard
+                            title="ККРИТ|WARFACE"
+                            discipline="WARFACE"
+                            status="Запланирован"
+                            date_start="18.08"
+                            date_end="29.08"
+                            teams="Участники: Команда 1, Команда 2"
+                            buttonText="Участвовать"
+                        />
+                    </div>
+                </div>
             </div>
-
-            <div className="row">
-                <TournamentCard
-                    title="Турнир по CS2"
-                    content="Участники: Команда 3(гиперсылка), Команда 4(гиперсылка)"
-                    buttonText="Участвовать"
-                />
-            </div>
-
-            <div className="row">
-                <TournamentCard
-                    title="Турнир по Warface"
-                    content="Участники: Команда 5(гиперсылка), Команда 6(гиперсылка)"
-                    buttonText="Участвовать"
-                />
-            </div>
-
         </div>
-
 
     );
 };

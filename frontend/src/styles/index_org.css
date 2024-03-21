@@ -1,0 +1,25 @@
+/* styles.css */
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/bg_index.JPEG');
+    background-size: cover;
+}
+
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+}

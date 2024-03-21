@@ -1,15 +1,15 @@
 import React from 'react';
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div id="organizer_header">
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#">Турниры ККРИТ</Navbar.Brand>
+            <Navbar bg="dark" variant="dark" expand="lg">
+                <Navbar.Brand className="ms-3" href="#">Турниры ККРИТ</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
-                <Navbar.Collapse id="navbarNav">
-                    <Nav className="mr-auto">
+                <Navbar.Collapse className="justify-content-end">
+                    <Nav className="me-3">
                         <Nav.Link as={Link} to="/tournaments">Активные турниры</Nav.Link>
                         <Nav.Link href="#">Команды</Nav.Link>
                         <Nav.Link href="#">Мой профиль</Nav.Link>
