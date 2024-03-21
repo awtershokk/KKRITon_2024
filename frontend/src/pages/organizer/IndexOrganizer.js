@@ -13,15 +13,15 @@ export default function IndexOrganizer() {
         <div>
             <Header />
             <h1>Выберите дисциплину, по которой будет проводиться турнир</h1>
-            <Link to="/dota2">
+            <Link to="/organizer/create_tournament">
                 <ImageCard src={dota2Image} alt="Игра для умных"/>
             </Link>
 
-            <Link to="/cs2">
+            <Link to="/organizer/create_tournament">
                 <ImageCard src={cs2Image} alt="Игра для менее умных"/>
             </Link>
             
-            <Link to="/warface">
+            <Link to="/organizer/create_tournament">
                 <ImageCard src={warfaceImage} alt="Игра для менее умных"/>
             </Link>
         </div>
