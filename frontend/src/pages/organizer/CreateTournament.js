@@ -47,6 +47,15 @@ export default function IndexOrganizer() {
             </Form.Group>
 
             <Form.Group className="mb-3">
+                <Form.Label>Уровень турнира</Form.Label>
+                <Form.Select className="form-control mt-1">
+                    <option value="player">Районный</option>
+                    <option value="organizer">Городской</option>
+                    <option value="organizer">Краевой</option>
+                </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
                 <Form.Label>Дата начала</Form.Label>
                 <Form.Control type="date"/>
             </Form.Group>

@@ -10,15 +10,16 @@ export default function Tournaments() {
 
             <div className="row">
                 <TournamentCard
-                    title="Турнир по Dota 2"
-                    content="Участники: Команда 1(гиперсылка), Команда 2(гиперсылка)"
+                    title="Турнир <Название>"
+                    content="Участники: Команда 1(гиперсылка)\t,
+                    Команда 2(гиперсылка)"
                     buttonText="Участвовать"
                 />
             </div>
 
             <div className="row">
                 <TournamentCard
-                    title="Турнир по CS2"
+                    title="Турнир <Название>"
                     content="Участники: Команда 3(гиперсылка), Команда 4(гиперсылка)"
                     buttonText="Участвовать"
                 />
@@ -26,7 +27,7 @@ export default function Tournaments() {
 
             <div className="row">
                 <TournamentCard
-                    title="Турнир по Warface"
+                    title="Турнир <Название>"
                     content="Участники: Команда 5(гиперсылка), Команда 6(гиперсылка)"
                     buttonText="Участвовать"
                 />
