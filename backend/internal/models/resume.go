@@ -5,9 +5,3 @@ type Resume struct {
 	AuthorID int    `json:"author_id"`
 	Status   string `json:"status"`
 }
-
-type ResumesList struct {
-	Id       int
-	ResumeId int
-	ListId   int
-}

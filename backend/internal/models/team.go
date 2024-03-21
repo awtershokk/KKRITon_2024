@@ -6,9 +6,3 @@ type Team struct {
 	Leader int    `json:"leader" db:"leader_id" binding:"required"`
 	// Resumes     int    `json:"resumes"`
 }
-
-type TeamsList struct {
-	Id     int
-	TeamId int
-	ListId int
-}

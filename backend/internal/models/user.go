@@ -8,11 +8,5 @@ type User struct {
 	Email    string `json:"email" db:"user_email" binding:"required"`
 	Password string `json:"password" binding:"required"`
 	Role     string `json:"role" db:"role" binding:"required"`
-	Team     int    `json:"team_id" db:"team_id"`
-}
-
-type UsersList struct {
-	Id     int
-	UserId int
-	ListId int
+	Team     *int   `json:"team_id" db:"team_id"`
 }

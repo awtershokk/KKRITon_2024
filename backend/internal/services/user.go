@@ -13,6 +13,10 @@ func NewUserService(repo database.User) *UserService {
 	return &UserService{repo: repo}
 }
 
+func (s *UserService) GetAll() ([]models.User, error) {
+	return s.repo.GetAll()
+}
+
 func (s *UserService) GetById(id int) (models.User, error) {
 	return s.repo.GetById(id)
 }

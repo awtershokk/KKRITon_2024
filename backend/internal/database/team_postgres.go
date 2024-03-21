@@ -46,3 +46,11 @@ func (r *TeamPostgres) GetAll() ([]models.Team, error) {
 
 	return teams, err
 }
+
+func (r *TeamPostgres) GetById(id int) (models.Team, error) {
+	var team models.Team
+	query := fmt.Sprintf("SELECT * FROM teams WHERE team_id=$1")
+	err := r.db.Get(&team, query, id)
+
+	return team, err
+}

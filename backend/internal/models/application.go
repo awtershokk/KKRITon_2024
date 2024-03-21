@@ -5,9 +5,3 @@ type Application struct {
 	AuthorID int    `json:"author_id"`
 	Status   string `json:"status"`
 }
-
-type ApplicationsList struct {
-	Id            int
-	ApplicationId int
-	ListId        int
-}

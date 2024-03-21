@@ -15,6 +15,14 @@ func NewUserPostgres(db *sqlx.DB) *UserPostgres {
 	return &UserPostgres{db: db}
 }
 
+func (r *UserPostgres) GetAll() ([]models.User, error) {
+	var users []models.User
+	query := fmt.Sprintf("SELECT users.user_id, users.user_name, users.user_lastname, users.user_email, users.team_id, users.role, users.user_nickname FROM users")
+	err := r.db.Select(&users, query)
+
+	return users, err
+}
+
 func (r *UserPostgres) GetById(id int) (models.User, error) {
 	var user models.User
 	query := fmt.Sprintf("SELECT users.user_id, users.user_name, users.user_lastname, users.user_email, users.team_id, users.role, users.user_nickname FROM users WHERE user_id=$1")

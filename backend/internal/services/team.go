@@ -20,3 +20,7 @@ func (s *TeamService) Create(leaderId int, title string) (int, error) {
 func (s *TeamService) GetAll() ([]models.Team, error) {
 	return s.repo.GetAll()
 }
+
+func (s *TeamService) GetById(id int) (models.Team, error) {
+	return s.repo.GetById(id)
+}

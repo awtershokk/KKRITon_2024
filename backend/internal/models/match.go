@@ -6,9 +6,3 @@ type Match struct {
 	Status       string `json:"status"`
 	Winner       Team   `json:"winner"`
 }
-
-type MatchesList struct {
-	Id      int
-	MatchId int
-	ListId  int
-}
