@@ -1,17 +1,18 @@
 import React from 'react';
 import { Navbar, Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const PlayerHeader = () => {
+const Header = () => {
     return (
-        <div id="player_header">
+        <div id="organizer_header">
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand href="#">Турниры ККРИТ</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#">Пока что</Nav.Link>
-                        <Nav.Link href="#">Хз</Nav.Link>
-                        <Nav.Link href="#">Че тут должно быть</Nav.Link>
+                        <Nav.Link as={Link} to="/tournaments">Активные турниры</Nav.Link>
+                        <Nav.Link href="#">Команды</Nav.Link>
+                        <Nav.Link href="#">Мой профиль</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -19,4 +20,4 @@ const PlayerHeader = () => {
     );
 };
 
-export default PlayerHeader;
+export default Header;
