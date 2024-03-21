@@ -1,11 +1,10 @@
 package models
 
 type Team struct {
-	Id          int          `json:"id"`
-	Leader      User         `json:"leader"`
-	Members     []User       `json:"members"`
-	Resumes     []Resume     `json:"resumes"`
-	Tournaments []Tournament `json:"tournaments"`
+	Id     int    `json:"id" db:"team_id"`
+	Title  string `json:"title" db:"team_title" binding:"required"`
+	Leader int    `json:"leader" db:"leader_id" binding:"required"`
+	// Resumes     int    `json:"resumes"`
 }
 
 type TeamsList struct {

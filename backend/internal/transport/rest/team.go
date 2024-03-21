@@ -8,18 +8,38 @@ import (
 )
 
 func (h *Handler) createTeam(c *gin.Context) {
-	id, ok := c.Get("userId")
-	if !ok {
-		newErrorResponse(c, http.StatusInternalServerError, "Пользователь не найден")
+	var input models.Team
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
 
-	var input models.Team
+	id, err := h.services.Team.Create(input.Leader, input.Title)
 
+	if err != nil {
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, map[string]interface{}{
+		"id": id,
+	})
+}
+
+type getAllTeamsResponse struct {
+	Data []models.Team `json:"data"`
 }
 
 func (h *Handler) getAllTeams(c *gin.Context) {
+	teams, err := h.services.Team.GetAll()
+	if err != nil {
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
 
+	c.JSON(http.StatusOK, getAllTeamsResponse{
+		Data: teams,
+	})
 }
 
 func (h *Handler) getTeamById(c *gin.Context) {

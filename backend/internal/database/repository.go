@@ -11,9 +11,12 @@ type Authorization interface {
 }
 
 type User interface {
+	GetById(id int) (models.User, error)
 }
 
 type Team interface {
+	Create(leaderId int, title string) (int, error)
+	GetAll() ([]models.Team, error)
 }
 
 type Tournament interface {
@@ -41,5 +44,7 @@ type Repository struct {
 func NewRepository(db *sqlx.DB) *Repository {
 	return &Repository{
 		Authorization: NewAuthPostgres(db),
+		Team:          NewTeamPostgres(db),
+		User:          NewUserPostgres(db),
 	}
 }

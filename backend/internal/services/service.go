@@ -12,9 +12,12 @@ type Authorization interface {
 }
 
 type User interface {
+	GetById(id int) (models.User, error)
 }
 
 type Team interface {
+	Create(leaderId int, title string) (int, error)
+	GetAll() ([]models.Team, error)
 }
 
 type Tournament interface {
@@ -42,5 +45,7 @@ type Service struct {
 func NewService(repo *database.Repository) *Service {
 	return &Service{
 		Authorization: NewAuthService(repo.Authorization),
+		Team:          NewTeamService(repo.Team),
+		User:          NewUserService(repo.User),
 	}
 }
