@@ -2,7 +2,7 @@
     background-color: #262626;
     position: relative;
     width: 550px;
-    height: 155px;
+    height: 180px;
     margin-bottom: 30px;
     border-radius: 15px;
     margin-left: 15px;
@@ -50,7 +50,16 @@
 
 .dateRange {
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 15px;
+    color: white;
+}
+
+
+
+.id {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 15px); /* Отступ от .cardTitle на 15px */
     color: white;
 }

@@ -6,6 +6,7 @@ export default function Tournaments() {
     return (
         <div>
             <Header/>
+
             <div className="container-tournaments">
 
                 <h1 className="heading-tournaments">Список активных турниров</h1>
@@ -15,6 +16,7 @@ export default function Tournaments() {
                         <TournamentCard
                             title="ККРИТ | Dota 2"
                             discipline="Dota 2"
+                            id = "25214"
                             status="Запланирован"
                             date_start="19.08"
                             date_end="30.08"
@@ -30,6 +32,7 @@ export default function Tournaments() {
                             title="ККРИТ | WARFACE"
                             discipline="WARFACE"
                             status="Запланирован"
+                            id = "774478"
                             date_start="18.08"
                             date_end="29.08"
                             teams="Участники: Команда 1, Команда 2"
@@ -39,5 +42,6 @@ export default function Tournaments() {
                 </div>
             </div>
         </div>
+
     );
 };

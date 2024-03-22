@@ -1,7 +1,7 @@
 .custom-container {
-    width: 500px; /* Уменьшаем ширину контейнера */
-    padding: 40px; /* Отступы внутри контейнера */
-    border: 2px solid #ced4da; /* Добавляем обводку */
-    border-radius: 10px; /* Закругляем углы */
+    width: 500px;
+    padding: 40px;
+    border: 2px solid #ced4da;
+    border-radius: 10px;
     margin-top: 100px;
 }
