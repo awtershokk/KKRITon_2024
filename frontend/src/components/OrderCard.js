@@ -21,30 +21,12 @@ const OrderCard = ({ name, id, discipline}) => {
                     </div>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Игрок 1</Form.Label>
-                        <Form.Control type="text"/>
+                        <Form.Label>Выберите команду:</Form.Label>
+                        <Form.Control as="select">
+                            <option value="option1">Команда 1</option>
+                            <option value="option2">Команда 2</option>
+                        </Form.Control>
                     </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Игрок 2</Form.Label>
-                        <Form.Control type="text"/>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Игрок 3</Form.Label>
-                        <Form.Control type="text"/>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Игрок 4</Form.Label>
-                        <Form.Control type="text"/>
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                        <Form.Label>Игрок 5</Form.Label>
-                        <Form.Control type="text"/>
-                    </Form.Group>
-
                     <div className="d-grid gap-2">
                         <Button type="submit" variant="primary">
                             Оставить заявку

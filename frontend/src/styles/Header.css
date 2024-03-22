@@ -26,3 +26,16 @@ color: black;
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #ccc;
 }
+.custom-vk-link {
+    background-color: #0077B5;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 150px;
+    text-align: center;
+}
+
+.custom-vk-link:hover {
+    background-color: #0186ce;
+    color: white;
+}

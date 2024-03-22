@@ -14,13 +14,13 @@ export default function Tournaments() {
                 <div className="row">
                     <div className="col-md-6">
                         <TournamentCard
-                            title="ККРИТ | Dota 2"
-                            discipline="Dota 2"
-                            id = "25214"
+                            title="Краевой чемпионат по dota 2"
+                            discipline="DOTA 2"
+                            organizate= "ККРИТ"
                             status="Запланирован"
                             date_start="19.08"
                             date_end="30.08"
-                            teams="Участники: Команда 1, Команда 2"
+                            teams="Участники:"
                             buttonText="Участвовать"
                         />
                     </div>
@@ -29,13 +29,13 @@ export default function Tournaments() {
                 <div className="row">
                     <div className="col-md-6">
                         <TournamentCard
-                            title="ККРИТ | WARFACE"
+                            title="Региональный чемпионат по warface"
                             discipline="WARFACE"
                             status="Запланирован"
-                            id = "774478"
+                            organizate= "ККРИТ"
                             date_start="18.08"
                             date_end="29.08"
-                            teams="Участники: Команда 1, Команда 2"
+                            teams="Участники:"
                             buttonText="Участвовать"
                         />
                     </div>

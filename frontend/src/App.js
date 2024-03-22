@@ -7,6 +7,9 @@ import IndexPlayer from "./pages/player/IndexPlayer";
 import CreateTournament from "./pages/organizer/CreateTournament";
 import Tournaments from "./pages/common/Tournaments";
 import CreateOrder from "./pages/player/CreateOrder";
+import Team from "./pages/common/Team";
+import MyProfile from "./pages/common/MyProfile";
+
 
 export default function App() {
     return (
@@ -15,9 +18,10 @@ export default function App() {
                 <Route path="/" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/tournaments" element={<Tournaments />} />
-
                 <Route path="/organizer/*" element={<OrganizerRoutes />} />
                 <Route path="/player/*" element={<PlayerRoutes />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/profile" element={<MyProfile />} />
             </Routes>
         </Router>
     );

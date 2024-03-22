@@ -15,8 +15,6 @@
 
 .cardTitle {
     color: white;
-
-
 }
 
 .status {
@@ -57,9 +55,6 @@
 
 
 
-.id {
-    position: absolute;
-    top: 0;
-    left: calc(100% + 15px); /* Отступ от .cardTitle на 15px */
-    color: white;
-}
+/*
+position: absolute;
+bottom: 15px;*/
