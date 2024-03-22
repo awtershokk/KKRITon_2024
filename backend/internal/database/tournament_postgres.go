@@ -15,7 +15,7 @@ func NewTournamentPostgres(db *sqlx.DB) *TournamentPostgres {
 	return &TournamentPostgres{db: db}
 }
 
-func (r *TournamentPostgres) Create(title string, organizer int, status string, game int, startDate string, endDate string) (int, error) {
+func (r *TournamentPostgres) Create(title string, organizer int, status string, game string, startDate string, endDate string) (int, error) {
 	tx, err := r.db.Begin()
 	if err != nil {
 		return 0, err

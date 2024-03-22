@@ -13,7 +13,7 @@ func NewTournamentService(repo database.Tournament) *TournamentService {
 	return &TournamentService{repo: repo}
 }
 
-func (s *TournamentService) Create(title string, organizer int, status string, game int, startDate string, endDate string) (int, error) {
+func (s *TournamentService) Create(title string, organizer int, status string, game string, startDate string, endDate string) (int, error) {
 	return s.repo.Create(title, organizer, status, game, startDate, endDate)
 }
 

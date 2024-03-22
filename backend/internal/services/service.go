@@ -26,7 +26,7 @@ type Team interface {
 }
 
 type Tournament interface {
-	Create(title string, organizer int, status string, game int, startDate string, endDate string) (int, error)
+	Create(title string, organizer int, status string, game string, startDate string, endDate string) (int, error)
 	GetAll() ([]models.Tournament, error)
 	GetById(id int) (models.Tournament, error)
 	GetTournamentMatches(id int) ([]models.Match, error)

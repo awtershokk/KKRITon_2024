@@ -1,87 +1,83 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Form, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import Header from '../../components/Header';
+import { Button, Form, Container } from "react-bootstrap";
 import axios from 'axios';
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../../styles/CreateTournament.css";
 
-export default function Registration() {
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+export default function IndexOrganizer() {
+    const [formData, setFormData] = useState({
+        title: "",
+        organizer: 1,
+        participants: "null",
+        status: "",
+        game: "",
+        start_date: "",
+        end_date: ""
+    });
 
-        const formData = {
-            nickname: e.target.elements.nickname.value,
-            name: e.target.elements.name.value,
-            lastname: e.target.elements.lastname.value,
-            email: e.target.elements.email.value,
-            password: e.target.elements.password.value,
-            role: e.target.elements.role.value
-        };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:8000/api/tournaments', formData)
+            .then(response => {
+                console.log('Success:', response.data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    };
 
-        console.log(formData)
-
-        try {
-            const response = await axios.post('http://localhost:8000/auth/sign-up', formData);
-            console.log(response.data);
-        } catch (error) {
-            console.error('Ошибка при отправке запроса:', error);
-        }
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center vh-100">
-            <div className="col-md-6">
-                <div className="card">
-                    <div className="card-body">
-                        <h3 className="card-title text-center">Регистрация</h3>
-                        <div className="text-center mb-3">
-                            Уже зарегистрированы?{" "}
-                            <Link to="/" className="link-primary">
-                                Войти
-                            </Link>
-                        </div>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3">
-                                <Form.Label>Выберите роль</Form.Label>
-                                <Form.Select name="role" className="form-control mt-1">
-                                    <option value="player">Игрок</option>
-                                    <option value="organizer">Организатор</option>
-                                </Form.Select>
-                            </Form.Group>
+        <div>
+            <Header />
+            <Container className="custom-container mt-5">
+                <h1>Создание турнира</h1>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Никнейм</Form.Label>
-                                <Form.Control name="nickname" type="text" />
-                            </Form.Group>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Никнейм</Form.Label>
+                        <Form.Control type="text" name="nickname" value={formData.nickname} onChange={handleChange} />
+                    </Form.Group>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Имя</Form.Label>
-                                <Form.Control name="name" type="text" />
-                            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Имя</Form.Label>
+                        <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} />
+                    </Form.Group>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Фамилия</Form.Label>
-                                <Form.Control name="lastname" type="text" />
-                            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Фамилия</Form.Label>
+                        <Form.Control type="text" name="lastname" value={formData.lastname} onChange={handleChange} />
+                    </Form.Group>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Электронная почта</Form.Label>
-                                <Form.Control name="email" type="email" />
-                            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} />
+                    </Form.Group>
 
-                            <Form.Group className="mb-3">
-                                <Form.Label>Пароль</Form.Label>
-                                <Form.Control name="password" type="password" />
-                            </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Пароль</Form.Label>
+                        <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} />
+                    </Form.Group>
 
-                            <div className="d-grid gap-2">
-                                <Button type="submit" variant="primary">
-                                    Регистрация
-                                </Button>
-                            </div>
-                        </Form>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Роль</Form.Label>
+                        <Form.Control as="select" name="role" value={formData.role} onChange={handleChange}>
+                            <option value="player">Игрок</option>
+                            <option value="organizer">Организатор</option>
+                        </Form.Control>
+                    </Form.Group>
+
+                    <div className="d-grid gap-2">
+                        <Button type="submit" variant="primary">
+                            Создать турнир
+                        </Button>
                     </div>
-                </div>
-            </div>
+                </Form>
+            </Container>
         </div>
     );
-}
+};
