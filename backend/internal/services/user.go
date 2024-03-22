@@ -20,3 +20,7 @@ func (s *UserService) GetAll() ([]models.User, error) {
 func (s *UserService) GetById(id int) (models.User, error) {
 	return s.repo.GetById(id)
 }
+
+func (s *UserService) Update(id int, input models.UserUpdateInput) error {
+	return s.repo.Update(id, input)
+}
