@@ -15,7 +15,7 @@ func (h *Handler) createTournament(c *gin.Context) {
 		return
 	}
 
-	id, err := h.services.Tournament.Create(input.Title, input.Organizer, input.Status)
+	id, err := h.services.Tournament.Create(input.Title, input.Organizer, input.Status, *input.Game)
 
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())

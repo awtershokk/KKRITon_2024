@@ -13,8 +13,8 @@ func NewTournamentService(repo database.Tournament) *TournamentService {
 	return &TournamentService{repo: repo}
 }
 
-func (s *TournamentService) Create(title string, organizer int, status string) (int, error) {
-	return s.repo.Create(title, organizer, status)
+func (s *TournamentService) Create(title string, organizer int, status string, game int) (int, error) {
+	return s.repo.Create(title, organizer, status, game)
 }
 
 func (s *TournamentService) GetAll() ([]models.Tournament, error) {

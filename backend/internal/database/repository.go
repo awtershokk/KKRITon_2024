@@ -22,18 +22,19 @@ type Team interface {
 }
 
 type Tournament interface {
-	Create(title string, organizer int, status string) (int, error)
+	Create(title string, organizer int, status string, game int) (int, error)
 	GetAll() ([]models.Tournament, error)
 	GetById(id int) (models.Tournament, error)
+}
+
+type Match interface {
+	Create(teamA int, teamB int, tournament int, stage int, game int) (int, error)
 }
 
 type Resume interface {
 }
 
 type Application interface {
-}
-
-type Match interface {
 }
 
 type Repository struct {
@@ -52,5 +53,6 @@ func NewRepository(db *sqlx.DB) *Repository {
 		Team:          NewTeamPostgres(db),
 		User:          NewUserPostgres(db),
 		Tournament:    NewTournamentPostgres(db),
+		Match:         NewMatchPostgres(db),
 	}
 }

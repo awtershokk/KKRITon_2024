@@ -23,12 +23,13 @@ type Team interface {
 }
 
 type Tournament interface {
-	Create(title string, organizer int, status string) (int, error)
+	Create(title string, organizer int, status string, game int) (int, error)
 	GetAll() ([]models.Tournament, error)
 	GetById(id int) (models.Tournament, error)
 }
 
 type Match interface {
+	Create(teamA int, teamB int, tournament int, stage int, game int) (int, error)
 }
 
 type Resume interface {
@@ -53,5 +54,6 @@ func NewService(repo *database.Repository) *Service {
 		Team:          NewTeamService(repo.Team),
 		User:          NewUserService(repo.User),
 		Tournament:    NewTournamentService(repo.Tournament),
+		Match:         NewMatchService(repo.Match),
 	}
 }
