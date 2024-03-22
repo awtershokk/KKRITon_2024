@@ -1,20 +1,22 @@
 import React from 'react';
 import TournamentCard from "../../components/TournamentCard";
 import Header from '../../components/Header';
-
+import '../../styles/Tournaments.css';
 export default function Tournaments() {
     return (
         <div>
             <Header/>
-            <div className="container">
 
-                <h1 className="mt-2">Список активных турниров</h1>
+            <div className="container-tournaments">
 
-                <div className="row mt-2">
+                <h1 className="heading-tournaments">Список активных турниров</h1>
+
+                <div className="row">
                     <div className="col-md-6">
                         <TournamentCard
-                            title="ККРИТ|Dota 2"
+                            title="ККРИТ | Dota 2"
                             discipline="Dota 2"
+                            id = "25214"
                             status="Запланирован"
                             date_start="19.08"
                             date_end="30.08"
@@ -24,12 +26,13 @@ export default function Tournaments() {
                     </div>
                 </div>
 
-                <div className="row mt-2">
+                <div className="row">
                     <div className="col-md-6">
                         <TournamentCard
-                            title="ККРИТ|WARFACE"
+                            title="ККРИТ | WARFACE"
                             discipline="WARFACE"
                             status="Запланирован"
+                            id = "774478"
                             date_start="18.08"
                             date_end="29.08"
                             teams="Участники: Команда 1, Команда 2"

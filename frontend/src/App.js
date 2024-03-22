@@ -6,6 +6,7 @@ import IndexOrganizer from "./pages/organizer/IndexOrganizer";
 import IndexPlayer from "./pages/player/IndexPlayer";
 import CreateTournament from "./pages/organizer/CreateTournament";
 import Tournaments from "./pages/common/Tournaments";
+import CreateOrder from "./pages/player/CreateOrder";
 
 export default function App() {
     return (
@@ -35,6 +36,7 @@ function PlayerRoutes() {
     return (
         <Routes>
             <Route path="/" element={<IndexPlayer />} />
+            <Route path="/create_order" element={<CreateOrder />} />
         </Routes>
     );
 }
