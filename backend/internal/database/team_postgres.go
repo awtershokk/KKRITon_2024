@@ -2,9 +2,11 @@ package database
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/awtershokk/KKRITon-2024/backend/internal/models"
 	"github.com/jmoiron/sqlx"
+	"github.com/sirupsen/logrus"
 )
 
 type TeamPostgres struct {
@@ -53,4 +55,42 @@ func (r *TeamPostgres) GetById(id int) (models.Team, error) {
 	err := r.db.Get(&team, query, id)
 
 	return team, err
+}
+
+func (r *TeamPostgres) Update(id int, input models.TeamUpdateInput) error {
+	setValues := make([]string, 0)
+	args := make([]interface{}, 0)
+	argId := 1
+
+	if input.Title != nil {
+		setValues = append(setValues, fmt.Sprintf("team_title=$%d", argId))
+		args = append(args, *input.Title)
+		argId++
+	}
+
+	if input.Leader != nil {
+		setValues = append(setValues, fmt.Sprintf("leader_id=$%d", argId))
+		args = append(args, *input.Leader)
+		argId++
+	}
+
+	setQuery := strings.Join(setValues, ", ")
+
+	query := fmt.Sprintf("UPDATE teams SET %s WHERE team_id=%s",
+		setQuery, id)
+	args = append(args, input.Leader, input.Title)
+
+	logrus.Debugf("updateQuery: %s", query)
+	logrus.Debugf("args: %s", args)
+
+	_, err := r.db.Exec(query, args...)
+	return err
+}
+
+func (r *TeamPostgres) AddMembers(team_id int, user_id int) error {
+	query := fmt.Sprintf("UPDATE users SET team_id=%s WHERE user_id=%s", team_id, user_id)
+
+	_, err := r.db.Exec(query)
+
+	return err
 }

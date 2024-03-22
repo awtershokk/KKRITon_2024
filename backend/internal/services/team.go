@@ -24,3 +24,11 @@ func (s *TeamService) GetAll() ([]models.Team, error) {
 func (s *TeamService) GetById(id int) (models.Team, error) {
 	return s.repo.GetById(id)
 }
+
+func (s *TeamService) Update(id int, input models.TeamUpdateInput) error {
+	return s.repo.Update(id, input)
+}
+
+func (s *TeamService) AddMembers(team_id int, user_id int) error {
+	return s.repo.AddMembers(team_id, user_id)
+}

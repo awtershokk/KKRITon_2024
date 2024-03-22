@@ -15,7 +15,7 @@ func (h *Handler) createTournament(c *gin.Context) {
 		return
 	}
 
-	id, err := h.services.Tournament.Create(input.Title, input.Organizer, input.Status, *input.Game)
+	id, err := h.services.Tournament.Create(input.Title, input.Organizer, input.Status, *input.Game, *input.StartDate, *input.EndDate)
 
 	if err != nil {
 		newErrorResponse(c, http.StatusInternalServerError, err.Error())
@@ -57,6 +57,22 @@ func (h *Handler) getTournamentById(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, tournament)
+}
+
+func (h *Handler) getTournamentMatches(c *gin.Context) {
+	id, err := strconv.Atoi(c.Param("tournament_id"))
+	if err != nil {
+		newErrorResponse(c, http.StatusBadRequest, "Некорректный ID")
+		return
+	}
+
+	matches, err := h.services.Tournament.GetTournamentMatches(id)
+	if err != nil {
+		newErrorResponse(c, http.StatusInternalServerError, err.Error())
+		return
+	}
+
+	c.JSON(http.StatusOK, matches)
 }
 
 func (h *Handler) updateTournament(c *gin.Context) {

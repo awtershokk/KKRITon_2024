@@ -22,7 +22,8 @@ func (h *Handler) signUp(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, map[string]interface{}{
-		"id": id,
+		"id":   id,
+		"role": input.Role,
 	})
 }
 

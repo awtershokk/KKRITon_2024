@@ -60,7 +60,35 @@ func (h *Handler) getTeamById(c *gin.Context) {
 }
 
 func (h *Handler) updateTeam(c *gin.Context) {
+	id, err := strconv.Atoi("team_id")
+	if err != nil {
+		newErrorResponse(c, http.StatusBadRequest, "Некорректный ID команды")
+		return
+	}
 
+	var input models.TeamUpdateInput
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	h.services.Team.Update(id, input)
+}
+
+func (h *Handler) addMembers(c *gin.Context) {
+	team_id, err := strconv.Atoi("team_id")
+	if err != nil {
+		newErrorResponse(c, http.StatusBadRequest, "Некорректный ID команды")
+		return
+	}
+
+	var input models.AddMemberInput
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	h.services.Team.AddMembers(team_id, input.UserId)
 }
 
 func (h *Handler) deleteTeam(c *gin.Context) {

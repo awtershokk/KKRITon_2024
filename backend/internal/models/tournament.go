@@ -7,6 +7,6 @@ type Tournament struct {
 	Participants *[]int  `json:"participants" db:"participants_id"`
 	Status       string  `json:"status" db:"tournament_status" binding:"required"`
 	Game         *int    `json:"game" db:"game_id" binding:"required"`
-	StartDate    *string `json:"start_date" db:"start_date"`
-	EndDate      *string `json:"end_date" db:"end_date"`
+	StartDate    *string `json:"start_date" db:"start_date" binding:"required"`
+	EndDate      *string `json:"end_date" db:"end_date" binding:"required"`
 }

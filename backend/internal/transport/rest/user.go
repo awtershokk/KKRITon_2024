@@ -41,5 +41,17 @@ func (h *Handler) getUserById(c *gin.Context) {
 }
 
 func (h *Handler) updateUser(c *gin.Context) {
+	id, err := strconv.Atoi("user_id")
+	if err != nil {
+		newErrorResponse(c, http.StatusBadRequest, "Некорректный ID пользователя")
+		return
+	}
 
+	var input models.UserUpdateInput
+	if err := c.BindJSON(&input); err != nil {
+		newErrorResponse(c, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	h.services.User.Update(id, input)
 }

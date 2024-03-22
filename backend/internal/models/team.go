@@ -6,3 +6,12 @@ type Team struct {
 	Leader int    `json:"leader" db:"leader_id" binding:"required"`
 	// Resumes     int    `json:"resumes"`
 }
+
+type TeamUpdateInput struct {
+	Title  *string `json:"title"`
+	Leader *int    `json:"leader"`
+}
+
+type AddMemberInput struct {
+	UserId int `json:"user_id" binding:"required"`
+}

@@ -10,3 +10,10 @@ type User struct {
 	Role     string `json:"role" db:"role" binding:"required"`
 	Team     *int   `json:"team_id" db:"team_id"`
 }
+
+type UserUpdateInput struct {
+	Nickname *string `json:"nickname"`
+	Name     *string `json:"name"`
+	Lastname *string `json:"lastname"`
+	Team     *int    `json:"team_id"`
+}

@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 
+	"github.com/awtershokk/KKRITon-2024/backend/internal/models"
 	"github.com/jmoiron/sqlx"
 )
 
@@ -29,4 +30,20 @@ func (r *MatchPostgres) Create(teamA int, teamB int, tournament int, stage int, 
 	}
 
 	return id, tx.Commit()
+}
+
+func (r *MatchPostgres) GetAll() ([]models.Match, error) {
+	var matches []models.Match
+	query := fmt.Sprintf("SELECT * FROM matches")
+	err := r.db.Select(&matches, query)
+
+	return matches, err
+}
+
+func (r *MatchPostgres) GetById(id int) (models.Match, error) {
+	var match models.Match
+	query := fmt.Sprintf("SELECT * FROM matches WHERE match_id=$1")
+	err := r.db.Get(&match, query, id)
+
+	return match, err
 }
