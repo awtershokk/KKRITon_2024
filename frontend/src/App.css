@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #000000;
+  background-image: url('frontend/src/img/bg_index.JPEG');
 }
 
 .App-logo {
@@ -37,6 +38,4 @@
     transform: rotate(360deg);
   }
 }
-.bose{
-  background: black;
-}
+

@@ -1,0 +1,65 @@
+.card {
+    background-color: #262626;
+    position: relative;
+    width: 550px;
+    height: 180px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    margin-left: 15px;
+
+}
+
+.cardBody {
+    padding: 10px; /* Добавляем отступы внутри карточки */
+}
+
+.cardTitle {
+    color: white;
+
+
+}
+
+.status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #6ECC24;
+}
+
+.cardText {
+    color: white;
+
+}
+
+.btnPrimary {
+    background-color: rgba(36, 225, 16, 0.73);
+    color: #f6f4f4;
+    padding: 8px 40px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 7px 0px rgba(2, 255, 121, 0.82);
+    text-decoration: none;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.btnPrimary:hover {
+    background-color: #76dc17;
+    color: #ffffff;
+
+}
+
+.dateRange {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    color: white;
+}
+
+
+
+.id {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 15px); /* Отступ от .cardTitle на 15px */
+    color: white;
+}

@@ -1,8 +1,8 @@
-/* styles.css */
 
 .page-container {
     position: relative;
     min-height: 100vh;
+
 }
 
 .page-background {
@@ -16,10 +16,34 @@
 }
 
 .page-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.page-title {
+    margin-top: 100px;
+    text-align: center;
+    color: #d2d0d0;
+}
+
+.image-links-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    position: relative;
-    z-index: 1;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.image-container {
+    margin: 20px;
+}
+.login-button {
+    background-color: #007bff; /* Primary color */
+    color: #ffffff; /* Text color */
+    border: none; /* Remove border */
+}
+
+.login-button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
 }
